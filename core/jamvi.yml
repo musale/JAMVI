@@ -1,0 +1,84 @@
+initial_screen:
+  type: initial_screen
+  next_screen: karibu_jamvi
+  pagination_conf:
+  ussd_text_limit: 90
+  default_language: sw
+
+
+karibu_jamvi:
+  type: menu_screen
+  text: karibu jamvi bonyeza
+  error_message: |
+    umeingiza chaguzi isiyo sahihi jaribu tena.
+options:
+   - text: usajili
+     next_screen: endelea_usajili
+   - text: angalia salio
+     next_screen: kuangalia_salio
+   - text: omba mkopo
+     next_screen: kuomba_mkopo
+   - text: taarifa ya akaunti
+     next_screen: taarifa_akaunti
+
+endelea_usajili:
+  type: input_screen
+  text: ingiza majina yako matatu mf. ATUGANILE MWALONGO MWAMBAPA
+  input_identifier: fname
+  next_screen: tarehe_ya_kuzaliwa
+
+tarehe_ya_kuzaliwa:
+  type: input_screen
+  text: weka tarehe/mwezi/mwaka mfano 11/09/2001
+  input_identifier:  age
+  next_screen: address_farmer
+
+address_farmer:
+  type: input_screen
+  text: weka mkoa unaoishi mf. Arusha
+  input_identifier: region
+  next_screen: pass_screen
+
+pass_screen:
+  type: input_screen
+  text: Ingizs namba ya siri mpya
+  identifier: password
+  next_screen: info_display
+
+info_display:
+  type: quit_screen
+  text: Hongera umekamilisha usajili wako wa awali
+       namba  yako ya siri ni "{{password}}"
+
+
+kuangalia_salio:
+  type: input_screen
+  text: ingiza namba ya siri
+  identifier: en_password
+  condition: en_password == {{password}}
+  next_screen: balance_display
+  condition: en_password != {{password}}
+  next_screen: err_screen
+
+balance_display:
+  type: quit_screen
+  text: Una sh.----- kwenye akaunti yako
+
+err_screen:
+  type: quit_screen
+  text: umeingiza namba ya siri isiyo sahii.
+
+omba_mkopo:
+  type: quit_screen
+  text: endelea kutumia huduma zetu ili kunufaika na huduma hii.
+
+taarifa_akaunti:
+  type: input_screen
+  text: tafadhari ingiza namba ya siri.
+  next_screen: taarifa_display
+
+taarifa_display:
+ type: quit_screen
+ text: utapokea ujumbe mfupi wa maandishi wenye taarifa ya akaunti yako.
+
+
