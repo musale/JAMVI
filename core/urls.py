@@ -5,4 +5,4 @@ urlpatterns = [
     url(r'at_gateway',
         AfricasTalkingUssdGateway.as_view(),
         name='africastalking_url')
-    ]
+]
