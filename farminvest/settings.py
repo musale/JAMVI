@@ -53,7 +53,7 @@ MIDDLEWARE = [
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
-DEFAULT_USSD_SCREEN_JOURNEY = 'jamvi.yml'
+DEFAULT_USSD_SCREEN_JOURNEY = 'core/jamvi.yml'
 
 ROOT_URLCONF = 'farminvest.urls'
 
