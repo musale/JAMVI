@@ -9,17 +9,18 @@ initial_screen:
 karibu_jamvi:
   type: menu_screen
   text: karibu jamvi bonyeza
+  input_identifier: welcome_selection
   error_message: |
     umeingiza chaguzi isiyo sahihi jaribu tena.
-options:
-   - text: usajili
-     next_screen: endelea_usajili
-   - text: angalia salio
-     next_screen: kuangalia_salio
-   - text: omba mkopo
-     next_screen: kuomba_mkopo
-   - text: taarifa ya akaunti
-     next_screen: taarifa_akaunti
+  options:
+    - text: usajili
+      next_screen: endelea_usajili
+    - text: angalia salio
+      next_screen: kuangalia_salio
+    - text: omba mkopo
+      next_screen: kuomba_mkopo
+    - text: taarifa ya akaunti
+      next_screen: taarifa_akaunti
 
 endelea_usajili:
   type: input_screen
@@ -42,7 +43,7 @@ address_farmer:
 pass_screen:
   type: input_screen
   text: Ingizs namba ya siri mpya
-  identifier: password
+  input_identifier: password
   next_screen: info_display
 
 info_display:
@@ -54,7 +55,7 @@ info_display:
 kuangalia_salio:
   type: input_screen
   text: ingiza namba ya siri
-  identifier: en_password
+  input_identifier: en_password
   condition: en_password == {{password}}
   next_screen: balance_display
   condition: en_password != {{password}}
@@ -68,12 +69,13 @@ err_screen:
   type: quit_screen
   text: umeingiza namba ya siri isiyo sahii.
 
-omba_mkopo:
+kuomba_mkopo:
   type: quit_screen
   text: endelea kutumia huduma zetu ili kunufaika na huduma hii.
 
 taarifa_akaunti:
   type: input_screen
+  input_identifier: taarifa_account
   text: tafadhari ingiza namba ya siri.
   next_screen: taarifa_display
 
