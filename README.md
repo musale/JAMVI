@@ -11,7 +11,7 @@ JAMVI is the company that seeks to bridge the gap of farmers financing by provid
 * run `docker-compose up`. The initial build will take some time because it's pulling the image for the first time. Consecutive builds will be faster.
 * The `docker-compose.yml` exposes the port `5003:80`. That means that the application in on port `5003`. To test using `curl` on a terminal run:
 
-`$ curl http://localhost:5003/api/at_gateway`
+`curl -H "Content-Type: application/json" -X POST -d '{"phoneNumber": "+25470123123", "sessionId": "pskjdkfjsdo9fip", "serviceCode":"08970", "text":""}' http://localhost:5003/api/at_gateway`
 
 #### Using virtualenv
 > Ensure that you have [python 3](https://www.python.org/download/releases/3.0/) installed
